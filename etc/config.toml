@@ -1,0 +1,56 @@
+[Global]
+RunMode = "release"
+
+[Log]
+Dir = "logs"
+Level = "DEBUG"
+Output = "stdout"
+# # rotate by time
+# KeepHours = 4
+# # rotate by size
+# RotateNum = 3
+# # unit: MB
+# RotateSize = 256
+
+[Http]
+Host = "0.0.0.0"
+Port = 19000
+CertFile = ""
+KeyFile = ""
+PrintAccessLog = false
+PProf = false
+ShutdownTimeout = 30
+# max content length: 64M
+MaxContentLength = 67108864
+# http server read timeout, unit: s
+ReadTimeout = 20
+# http server write timeout, unit: s
+WriteTimeout = 40
+# http server idle timeout, unit: s
+IdleTimeout = 120
+
+[HTTP.APIForAgent]
+Enable = true
+
+[HTTP.APIForService]
+Enable = true
+[HTTP.APIForService.BasicAuth]
+user001 = "ccc26da7b9aba533cbb263a36c07dcc5"
+
+[DB]
+# postgres: host=%s port=%s user=%s dbname=%s password=%s sslmode=%s
+DSN="username:passwd@tcp(ip:port)/schema_name?charset=utf8mb4&parseTime=True&loc=Local&allowNativePasswords=true"
+# enable debug mode or not
+Debug = false
+# mysql postgres
+DBType = "mysql"
+# unit: s
+MaxLifetime = 7200
+# max open connections
+MaxOpenConns = 150
+# max idle connections
+MaxIdleConns = 50
+# table prefix
+TablePrefix = ""
+# enable auto migrate or not
+# EnableAutoMigrate = false
